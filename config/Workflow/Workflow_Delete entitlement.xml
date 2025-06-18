@@ -1,0 +1,38 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE Workflow PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Workflow libraries="Identity,CustomWfl" name="Delete entitlement">
+
+    <Variable input="true" name="identityName" type="string"/>
+    <Variable name="trace" initializer="true"/>
+
+    <Step icon="Start" name="start">
+        <Transition to="Delete entitlement"/>
+    </Step>
+
+    <Step name="Delete entitlement">
+        <Script>
+            <Source><![CDATA[
+        import com.acme.resilient.RAction;
+        import sailpoint.api.RequestManager;
+        import sailpoint.api.SailPointContext;
+        import sailpoint.api.TaskManager;
+        import sailpoint.object.*;
+        import sailpoint.reporting.JasperExecutor;
+        import sailpoint.tools.GeneralException;
+
+        QueryOptions queryOptions = new QueryOptions();
+        queryOptions.addFilter(Filter.eq("value", "cn=Vengerberg,ou=groups,dc=example,dc=org"));
+        Iterator iter = context.search(ManagedAttribute.class, queryOptions);
+        Map arguments = new HashMap();
+        arguments.put("entitlementId", iter.next().getId());
+        arguments.put("requester", context.getUserName());
+        Identity owner = context.getObjectByName(Identity.class, context.getUserName());
+        var requestDefinition = context.getObjectByName(RequestDefinition.class, "Delete Entitlement Request");
+        RequestManager.scheduleRequest(context, requestDefinition, arguments, "Delete ent", new Date(), owner);
+            ]]></Source>
+        </Script>
+        <Transition to="End"/>
+    </Step>
+
+    <Step name="End"/>
+</Workflow>

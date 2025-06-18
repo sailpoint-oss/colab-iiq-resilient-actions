@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity assignedRoleSummary="BR Employee" bundleSummary="Open Employee" correlated="true" name="Manuel.Howell">
+    <Attributes>
+        <Map>
+            <entry key="costcenter">
+                <value>
+                    <List>
+                        <String>R02e</String>
+                        <String>L06e</String>
+                    </List>
+                </value>
+            </entry>
+            <entry key="department" value="Finance"/>
+            <entry key="displayName" value="Manuel.Howell"/>
+            <entry key="email" value="Manuel.Howell@demoexample.com"/>
+            <entry key="empId" value="1c2c3c4a"/>
+            <entry key="employeeType" value="employee"/>
+            <entry key="firstname" value="Manuel"/>
+            <entry key="lastname" value="Howell"/>
+            <entry key="location" value="Taipei"/>
+            <entry key="region" value="Asia-Pacific"/>
+            <entry key="type" value="employee"/>
+        </Map>
+    </Attributes>
+    <AssignedRoles>
+        <Reference class="sailpoint.object.Bundle" name="BREmployee"/>
+    </AssignedRoles>
+    <Bundles>
+        <Reference class="sailpoint.object.Bundle" name="OpenEmployee"/>
+    </Bundles>
+    <Manager>
+        <Reference class="sailpoint.object.Identity" name="Victor.Pierce"/>
+    </Manager>
+    <Preferences>
+        <Map>
+            <entry key="roleAssignments">
+                <value>
+                    <List>
+                        <RoleAssignment assignmentId="8e39283bdb93447c854feceb98b7ea6b" date="1686482398835" roleId="0a00002088761e968188aa1862d118c2" roleName="BREmployee" source="Rule">
+                            <RoleTarget applicationId="0a00002088761e968188a9f2ab721832" applicationName="OpenLDAP" displayName="Manuel.Howell" nativeIdentity="cn=Manuel.Howell,ou=users,dc=example,dc=org"/>
+                        </RoleAssignment>
+                    </List>
+                </value>
+            </entry>
+            <entry key="roleDetections">
+                <value>
+                    <List>
+                        <RoleDetection assignmentIds="8e39283bdb93447c854feceb98b7ea6b" date="1686642737590" roleId="0a00002088761e968188aa1586e318b3" roleName="OpenEmployee">
+                            <RoleTarget applicationId="0a00002088761e968188a9f2ab721832" applicationName="OpenLDAP" displayName="Manuel.Howell" nativeIdentity="cn=Manuel.Howell,ou=users,dc=example,dc=org">
+                                <AccountItem name="groups" value="cn=employees,ou=groups,dc=example,dc=org"/>
+                            </RoleTarget>
+                        </RoleDetection>
+                    </List>
+                </value>
+            </entry>
+        </Map>
+    </Preferences>
+    <Links>
+        <Link displayName="Manuel.Howell" entitlements="true" identity="cn=Manuel.Howell,ou=users,dc=example,dc=org" manuallyCorrelated="true">
+            <ApplicationRef>
+                <Reference class="sailpoint.object.Application" name="OpenLDAP"/>
+            </ApplicationRef>
+            <Attributes>
+                <Map>
+                    <entry key="cn" value="Manuel.Howell"/>
+                    <entry key="dn" value="cn=Manuel.Howell,ou=users,dc=example,dc=org"/>
+                    <entry key="givenName" value="Manuel"/>
+                    <entry key="groups">
+                        <value>
+                            <List>
+                                <String>cn=employees,ou=groups,dc=example,dc=org</String>
+                            </List>
+                        </value>
+                    </entry>
+                    <entry key="objectClass">
+                        <value>
+                            <List>
+                                <String>inetOrgPerson</String>
+                            </List>
+                        </value>
+                    </entry>
+                    <entry key="sn" value="Howell"/>
+                </Map>
+            </Attributes>
+        </Link>
+        <Link displayName="Manuel.Howell" identity="1c2c3c4a">
+            <ApplicationRef>
+                <Reference class="sailpoint.object.Application" name="HR_Employees"/>
+            </ApplicationRef>
+            <Attributes>
+                <Map>
+                    <entry key="costcenter">
+                        <value>
+                            <List>
+                                <String>R02e</String>
+                                <String>L06e</String>
+                            </List>
+                        </value>
+                    </entry>
+                    <entry key="department" value="Finance"/>
+                    <entry key="email" value="Manuel.Howell@demoexample.com"/>
+                    <entry key="employeeId" value="1c2c3c4a"/>
+                    <entry key="firstName" value="Manuel"/>
+                    <entry key="fullName" value="Manuel.Howell"/>
+                    <entry key="inactiveIdentity" value="FALSE"/>
+                    <entry key="jobtitle" value="Financial Systems Analyst"/>
+                    <entry key="lastName" value="Howell"/>
+                    <entry key="location" value="Taipei"/>
+                    <entry key="managerId" value="1c2c3c"/>
+                    <entry key="region" value="Asia-Pacific"/>
+                    <entry key="type" value="employee"/>
+                </Map>
+            </Attributes>
+        </Link>
+    </Links>
+    <Scorecard/>
+</Identity>
