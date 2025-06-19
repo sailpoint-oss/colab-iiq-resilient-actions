@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QuickLink PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<QuickLink action="workflow" category="ITF" messageKey="Delete entitlement" name="Delete entitlement" ordering="99">
+    <Attributes>
+        <Map>
+            <entry key="workflowName" value="Delete entitlement"/>
+            <entry key="testV" value="smd"/>
+        </Map>
+    </Attributes>
+    <QuickLinkOptions allowSelf="true">
+        <DynamicScopeRef>
+            <Reference class="sailpoint.object.DynamicScope" name="Everyone"/>
+        </DynamicScopeRef>
+    </QuickLinkOptions>
+</QuickLink>

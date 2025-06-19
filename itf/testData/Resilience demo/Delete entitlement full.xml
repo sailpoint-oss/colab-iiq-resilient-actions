@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE TestCase PUBLIC "-//amidentity//DTD TestCase 2.0//EN" "http://www.amidentity.com/dtd/AutomatedTestingXMLSchema20.dtd">
+<TestCase clientTimeout="0" deleteObjects="false" removeIds="true">
+    <TestCaseName>Delete entitlement full</TestCaseName>
+    <TestCommands>
+
+        <Provision>
+            <Plan>
+                <ObjectRequest application="OpenLDAP" op="Delete" nativeIdentity="cn=Vengerberg,ou=groups,dc=example,dc=org" type="group"/>
+            </Plan>
+        </Provision>
+
+        <SimulateProvisioning simulateStatus="committed">
+            <Application>LDAP</Application>
+        </SimulateProvisioning>
+
+        <Clean deleteAccessRequest="true" identityEntitlements="true" provisioningRequest="true" workflowCase="true" identityItself="true">
+            <IdentityName>Manuel.Howell</IdentityName>
+        </Clean>
+
+        <Clean deleteAccessRequest="true" identityEntitlements="true" provisioningRequest="true" workflowCase="true" identityItself="true">
+            <IdentityName>Pamela.Kelly</IdentityName>
+        </Clean>
+        
+        <CleanObject objectClass="Bundle">
+            <NamePrefix>Vengerberg</NamePrefix>
+        </CleanObject>
+        
+        <LoadObjects>
+            <ObjectsList>
+                <Object>Identity_Manuel_Howell.xml</Object>
+                <Object>Identity_Pamela_Kelly.xml</Object>
+                <Object>Bundle_Vengerberg_IT.xml</Object>
+                <Object>Bundle_Vengerberg.xml</Object>
+            </ObjectsList>
+        </LoadObjects>
+
+        <Provision>
+            <Plan>
+                <ObjectRequest application="OpenLDAP" op="Create" nativeIdentity="cn=Vengerberg,ou=groups,dc=example,dc=org" type="group">
+                    <AttributeRequest name="objectClass" op="Set" value="groupOfNames"/>
+                    <AttributeRequest name="cn" op="Set" value="Vengerberg"/>
+                    <AttributeRequest name="description" op="Set" value="Vengerberg employees"/>
+                    <AttributeRequest name="member" op="Add" value="cn=customuser,ou=users,dc=example,dc=org"/>
+                </ObjectRequest>
+            </Plan>
+        </Provision>
+        
+        <Aggregate>
+            <AccountsList>
+                <Account applicationName="OpenLDAP" nativeIdentity="cn=Pamela.Kelly,ou=users,dc=example,dc=org"/>
+            </AccountsList>
+        </Aggregate>
+        
+        <Assign>
+            <IdentityName>Pamela.Kelly</IdentityName>
+            <Entitlement applicationName="OpenLDAP" attributeName="groups" value="cn=Vengerberg,ou=groups,dc=example,dc=org"/>
+        </Assign>
+
+        <ValidateResult skip="false">
+            <IdentityName>Pamela.Kelly</IdentityName>
+            <ExpectedIdentity validateUnlistedLinks="false" validateUnlistedRoles="false">
+                <ExpectedLinks>
+                    <ExpectedLink applicationName="OpenLDAP" nativeIdentity="cn=Pamela.Kelly,ou=users,dc=example,dc=org"
+                                  throwIfExists="false" validateInTargetSystem="false" validateLocally="true">
+                        <Attributes>
+                            <entry key="groups">
+                                <value>
+                                    <List>
+                                        <String>cn=contractors,ou=groups,dc=example,dc=org</String>
+                                        <String>cn=Vengerberg,ou=groups,dc=example,dc=org</String>
+                                    </List>
+                                </value>
+                            </entry>
+                        </Attributes>
+                    </ExpectedLink>
+                </ExpectedLinks>
+            </ExpectedIdentity>
+        </ValidateResult>
+
+        <Assign>
+            <IdentityName>Manuel.Howell</IdentityName>
+            <Bundle>Vengerberg</Bundle>
+        </Assign>
+
+    </TestCommands>
+</TestCase>

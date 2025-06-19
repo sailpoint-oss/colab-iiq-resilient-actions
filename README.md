@@ -13,7 +13,7 @@
 [contributors-url]:https://github.com/sailpoint-oss/repo-template/graphs/contributors
 
 # IIQ Resilient Actions
-[Explore the docs »](https://your-link-to-colab-topic-here)
+This is the code repository used for Sailpoint Developer days presentation [IIQ Resilient Actions »](https://developer.sailpoint.com/discuss/t/resilient-actions-in-identityiq/130185).
 
 [New to the CoLab? Click here »](https://developer.sailpoint.com/discuss/t/about-the-sailpoint-developer-community-colab/11230)
 

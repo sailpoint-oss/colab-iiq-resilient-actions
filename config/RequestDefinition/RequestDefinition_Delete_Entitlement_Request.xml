@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE RequestDefinition PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<RequestDefinition executor="sailpoint.request.DeleteEntitlementExecutor" name="Delete Entitlement Request" retryMax="100" retryInterval="30">
+    <Attributes>
+        <Map>
+            <entry key="maxQueue" value="10"/>
+            <entry key="requestProcessorNoInterrupt" value="true"/>
+        </Map>
+    </Attributes>
+</RequestDefinition>

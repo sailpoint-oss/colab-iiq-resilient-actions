@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE Identity PUBLIC "sailpoint.dtd" "sailpoint.dtd">
+<Identity correlated="true" name="Pamela.Kelly">
+    <Attributes>
+        <Map>
+            <entry key="costcenter">
+                <value>
+                    <List>
+                        <String>R03e</String>
+                        <String>L08e</String>
+                    </List>
+                </value>
+            </entry>
+            <entry key="department" value="Finance"/>
+            <entry key="displayName" value="Pamela.Kelly"/>
+            <entry key="email" value="Pamela.Kelly@demoexample.com"/>
+            <entry key="empId" value="1a2c3d4c"/>
+            <entry key="employeeType" value="contractor"/>
+            <entry key="firstname" value="Pamela"/>
+            <entry key="lastname" value="Kelly"/>
+            <entry key="location" value="San Jose"/>
+            <entry key="region" value="Americas"/>
+        </Map>
+    </Attributes>
+    <Manager>
+        <Reference class="sailpoint.object.Identity" name="Susan.Martin"/>
+    </Manager>
+    <Workgroups>
+        <Reference class="sailpoint.object.Identity" name="SelfRegistrationWorkGroup"/>
+    </Workgroups>
+    <Links>
+        <Link displayName="Pamela Kelly" entitlements="true" identity="cn=Pamela Kelly,ou=users,dc=acme,dc=com" manuallyCorrelated="true">
+            <ApplicationRef>
+                <Reference class="sailpoint.object.Application" name="LDAP"/>
+            </ApplicationRef>
+            <Attributes>
+                <Map>
+                    <entry key="cn" value="Pamela Kelly"/>
+                    <entry key="dn" value="cn=Pamela Kelly,ou=users,dc=acme,dc=com"/>
+                    <entry key="givenName" value="Pamela"/>
+                    <entry key="groups">
+                        <value>
+                            <List>
+                                <String>cn=Contractors,ou=groups,dc=acme,dc=com</String>
+                            </List>
+                        </value>
+                    </entry>
+                    <entry key="l" value="San Jose"/>
+                    <entry key="objectClass">
+                        <value>
+                            <List>
+                                <String>top</String>
+                                <String>inetOrgPerson</String>
+                                <String>person</String>
+                                <String>organizationalPerson</String>
+                            </List>
+                        </value>
+                    </entry>
+                    <entry key="sn" value="Kelly"/>
+                </Map>
+            </Attributes>
+        </Link>
+        <Link displayName="Pamela.Kelly" identity="1a2c3d4c">
+            <ApplicationRef>
+                <Reference class="sailpoint.object.Application" name="HR_Contractors"/>
+            </ApplicationRef>
+            <Attributes>
+                <Map>
+                    <entry key="costcenter">
+                        <value>
+                            <List>
+                                <String>R03e</String>
+                                <String>L08e</String>
+                            </List>
+                        </value>
+                    </entry>
+                    <entry key="department" value="Finance"/>
+                    <entry key="email" value="Pamela.Kelly@demoexample.com"/>
+                    <entry key="employeeId" value="1a2c3d4c"/>
+                    <entry key="firstName" value="Pamela"/>
+                    <entry key="fullName" value="Pamela.Kelly"/>
+                    <entry key="inactiveIdentity" value="FALSE"/>
+                    <entry key="lastName" value="Kelly"/>
+                    <entry key="location" value="San Jose"/>
+                    <entry key="managerId" value="1a2c3d"/>
+                    <entry key="region" value="Americas"/>
+                    <entry key="type" value="contractor"/>
+                </Map>
+            </Attributes>
+        </Link>
+    </Links>
+</Identity>
